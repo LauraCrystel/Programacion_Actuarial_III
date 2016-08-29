@@ -1,0 +1,22 @@
+---
+title: "Tarea1"
+author: "Laura Crystel Carre??o Olivera"
+date: "29 de agosto de 2016"
+output: html_document
+---
+#KARDEX
+##Primer semestre
+ - Matematicas basicas: 8
+ - Problemas de matematicas basicas: 8
+ - Conceptos de calculo: 9
+ - Programacion actuarial I: 10
+ - Introduccion a la profesion actuarial: 10 
+ - DHPC: 9
+
+##Segundo semestre
+ - Calculo diferencial: 7
+ - Geometria analitica: 10
+ - Programacion actuarial II: 6
+ - Microeconomia: 9
+ - Teoria del interes I: 6
+ - Teoria de ecuaciones: 5
