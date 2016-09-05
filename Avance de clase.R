@@ -162,7 +162,9 @@ hoja
 getwd()
 setwd("/Users/Laura/Documents/Programacion_Actuarial_III")
 data <- read.csv("table.csv")
-data <- read.table("table.csv",T,",")
+data <- read.table("table.csv",T,",",nrows=100,skip=5)#Actividad
+clases <-sapply(data,class)
+data <- read.table("table.csv",T,",",colClasses = clases)
 data
 
 ##Pruebas
@@ -176,3 +178,50 @@ tabla
 matriz <-data.matrix("table.csv",rownames.force = NA)
 matriz
 
+# Uso de dput y dget
+y <- data.frame(a=1,b="a")
+dput(y)
+dput(y,file="y.R")
+nueva.y <-dget("y.R")
+y
+nueva.y
+
+x <- "Programaci??n Actuarial III"
+y <- data.frame(a=1, b="a")
+dump(c("x","y"),file= "data.R")
+
+bla <-head(airquality)
+dput(bla,file="airquality.R")
+
+con <- url("http://www.fcfm.buap.mx/","r")
+x <- readLines(con,7)
+x
+
+#Creamos un vector 
+x<- c("a","b","c","c","d","e")
+#Veamos el vector
+x
+#Extraemos elementos con []
+x[1]
+x[2]
+#Tambi??n podemos extraer una secuencia de elementos 
+x[1:4]
+#Es posible extraer una secuencia de elementos que cumplen una restricci??n
+x[x>"b"]
+#De manera equivalente se spuede obtener un vector l??gico
+u <- x == "c"
+u
+x[u]
+
+#Creamos una lista
+x <- list(foo= 1:4, bar= 0.6)
+#Extraemos el primer elemento de la lista
+#este elemento es una lista que contiene una secuencia 
+x[1]
+#Extraemos nuevamente el primer elemento de la lista,
+#ahora el elemento es la secuencia en s?? 
+x[[1]]
+#Extraemos un elemento por nombre
+x$bar
+x[["bar"]]
+x["bar"]
