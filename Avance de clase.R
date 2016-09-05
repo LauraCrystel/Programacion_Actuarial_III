@@ -160,7 +160,19 @@ hoja
 
 #Lectura de datos
 getwd()
-setwd("/Users/Laura/Documents/Programacion_Actuarial_II")
+setwd("/Users/Laura/Documents/Programacion_Actuarial_III")
 data <- read.csv("table.csv")
 data <- read.table("table.csv",T,",")
 data
+
+##Pruebas
+columnas <- ncol(data)
+columnas
+renglones <-nrow(data)
+renglones
+read.table
+tabla <-matrix(data=data, nrow=renglones,ncol=columnas)
+tabla
+matriz <-data.matrix("table.csv",rownames.force = NA)
+matriz
+
