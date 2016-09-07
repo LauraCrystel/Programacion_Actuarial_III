@@ -225,3 +225,58 @@ x[[1]]
 x$bar
 x[["bar"]]
 x["bar"]
+x$foo[2]
+
+x <- list(foo= 1:4, bar= 0.6, baz= "Hola")
+x[c(1,3)]
+x[[c(1,3)]]
+
+#Se pueden extraer elementos de los elementos extra??dos 
+x <- list(a=list(10,12,14), b=list(3.14,2.81))
+x[[c(1,3)]]
+x[[1]][[3]]
+
+x[[c(2,1)]]
+
+x <- matrix(1:6,2,3)
+x
+#EL resultado es un vector
+x[1,2]
+x[1,]
+x[,2]
+#Con drop= False, se mantiene la dimensi??n y el resultado ser?? una matriz
+x[1,2,drop=FALSE]
+#Si dejamos solamente el espacio, el resultado ser?? un vector
+x[1,]
+#Si usamos drop= FALSE, el resultado ser?? un matriz
+x[1, ,drop=FALSE]
+
+#R puede encontrar el nombre de algunos objetos de manera pacial con $, tambi??n puede hacerlo con [[]] pero
+#necesitar??amos decir de manera expl??cita que queremos una coiuncidencia parcial
+x <- list(aasdfsa =1:5)
+x$a
+x[["a"]]
+x[["a", exact=FALSE]]
+
+#Valores Faltantes
+airquality[1:6,]
+completos <- complete.cases(airquality)
+completos
+airquality[completos,]
+airquality[completos,][1:6,]
+airquality[1:6,][completos,]
+
+#Muchas operaciones de R est??n pensadas para trabajar con vectores, lo que evita el uso de demasiados ciclos
+x <- 1:4; y <- 6:9
+x + y
+x > 2
+x >=2
+y == 8
+x * y
+x / y
+#Para matrices
+x <- matrix(1:4,2,2); y <- matrix(rep(10,4),2,2)
+x*y
+x/y
+x %*% y #Para multiplicar matrices
+
