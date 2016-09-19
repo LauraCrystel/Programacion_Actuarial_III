@@ -295,3 +295,126 @@ for (i in seq_len(nrow(x)))
        print(x[i,j])
     }
 }
+
+##Ciclo While
+z <- 5
+while(z>=3 && z<=10){# doble & porque es un mismo n??mero
+  print(z)
+  moneda <- rbinom(1,1,0.5)
+  if (moneda==1){ #Caminata Aleatoria
+     z <- z+1
+  }else{
+     z <- z-1
+  }
+  vector <- c(value=z,recursive=TRUE)
+  vector
+}
+
+
+z <- 5
+contador <-1
+vector <- c(z)
+while(z>=3 && z<=10){# doble & porque es un mismo n??mero
+  moneda <- rbinom(1,1,0.5)
+  if (moneda==1){ #Caminata Aleatoria
+     z <- z+1
+  }else{
+    z <- z-1
+  }
+  vector[contador] <- c(z)
+  contador <- contador +1
+}
+vector
+
+##soluci??n
+caminata <- vector ("numeric")
+while(z>=3 && z<=10){# doble & porque es un mismo n??mero
+   print(z) 
+   caminata <- c(caminata,z)
+   moneda <- rbinom(1,1,0.5)
+  if (moneda==1){ #Caminata Aleatoria
+    z <- z+1
+  }else{
+    z <- z-1
+  }
+}
+
+cuentaarriba <- 0
+cuentaabajo <- 0
+bla<-vector("numeric")
+for (p in 1:100){
+
+  z <- 5
+  i <- 1
+  bla[[i]] <- c(z)
+  while(z>=3 && z<=10){
+    moneda <- rbinom(1,1,0.5)
+    if (moneda==1){ #Caminata Aleatoria
+      z <- z + 0.5
+      bla[[i]] <- c(z)
+      i <- i + 1
+    }else{
+      z <- z - 0.5
+      bla[[i]] <- c(z)
+      i <- i + 1
+  }
+  
+  if (bla[[i]]==10.5){
+   cuentaarriba <- cuentaarriba + 1
+  }
+  if (bla[[i]]==2.5){
+    cuentaabajo <- cuentaabajo + 1
+  }
+  }
+}
+
+ cuentaarriba
+ cuentaabajo
+
+#repeat
+ x0 <- 1
+ tol <- 1e-8
+ repeat{
+    x1 <- CalculaEstimado (x0)
+    if (abs(x1-x0)<tol){
+      break
+    }else{
+      
+    }
+  }
+ 
+ 
+#Creaci??n de funciones
+ suma2 <- function(x,y){
+   x + y
+ }
+ 
+mayor10 <- function(x){
+  x[x>10]
+}
+
+mayorque <- function(x,n){
+  x[x>n]
+}
+
+promedioCol <- function(x, quitar.NA= TRUE){
+   nc <- ncol(x)
+     medias <- vector("numeric",nc)
+     for (i in 1:nc){
+        medias[i] <- mean(x[,i], na.rm=quitar.NA)
+     }
+      medias
+   }
+promedioCol(as.matrix(c(1,2,3,NA)))
+
+#Evaluaci??n perezosa
+f <- function(a,b){
+  a^2
+}
+
+f <- function(a,b){
+  print(a)
+  print(b)
+}
+  
+args(paste)  
