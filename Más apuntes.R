@@ -75,3 +75,22 @@ log.mu <- 0.5 + 0.3*x
 y <- rpois(100,exp(log.mu))
 summary(y)
 plot(x,y, main = "Modelo Poisson", col="forestgreen")
+
+
+#Muestreo
+set.seed(1)
+sample(1:10,4) 
+sample(letters,5) 
+sample(1:10)#permutaci??n diferente orden que puede adoptar
+sample(1:10,replace=TRUE)#se repiten los n??meros (extracci??n con remplazo)
+
+#perfilaje (??por qu?? mi c??digo es lento?)
+system.time(readLines("http://www.fcfm.buap.mx"))
+
+hilbert <- function(n){
+    i <- 1:n
+    1/outer(i-1,i,"+")
+}
+x <- hilbert(1000)
+system.time(x <- hilbert(1000))
+system.time(svd(x))
