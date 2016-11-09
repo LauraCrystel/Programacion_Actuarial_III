@@ -1,5 +1,5 @@
 setwd("/Users/Laura/Documents/Programacion_Actuarial_III/")
-rankingcompleto <- function(resultado,num){
+rankhospital <- function(estado, resultado, num){
     hospitalsData<-read.csv("hospital-data.csv")
     states<-levels(hospitalsData[,7])
     data<-read.csv("outcome-of-care-measures.csv")
@@ -7,6 +7,9 @@ rankingcompleto <- function(resultado,num){
     arrayOfVals<-numeric(0)
     v1<-NA
     v2<-NA  
+    if (estado %in% states==F){
+        stop("Estado invalido")
+    }
     if(resultado=="ataque"){
         col<-11
     }
@@ -23,30 +26,31 @@ rankingcompleto <- function(resultado,num){
             }
         }
     }
-    pos <- 1
-    for (est in states){
-        a <- subset(data,states==est)
-        for(i in 1:nrow(data)){
-                if(data[est,col]!="Not Available"){
-                    arrayOfPos[pos]<-as.character(data[est,2])
-                    aux<-as.character(data[est,col])
-                    #print(aux)
-                    arrayOfVals[pos]<-as.numeric(aux)
-                    #print(arrayOfVals[pos])
-                    pos<-pos+1
-                }
+    pos<-1
+    for(i in 1:nrow(data)){
+        if (data[i,7]==estado){
+            if(data[i,col]!="Not Available"){
+                arrayOfPos[pos]<-as.character(data[i,2])
+                aux<-as.character(data[i,col])
+                #print(aux)
+                arrayOfVals[pos]<-as.numeric(aux)
+                #print(arrayOfVals[pos])
+                pos<-pos+1
+            }
         }
     }
     result<-data.frame(nombre=arrayOfPos,valor=arrayOfVals)
     result<-result[with(result,order(valor,nombre)),]
     printable<-order(result$valor,result$nombre)
+    #print(result)
     print(result[printable[num],])
     if (num=="mejor"){
-        print(result[printable[1],])
+     print(result[printable[1],])
     }else{
         if (num=="peor"){
             print(result[printable[length(printable)],])
         }
     }
+    
 }
-rankingcompleto("ataque",20)
+rankhospital("TX","falla",4)
