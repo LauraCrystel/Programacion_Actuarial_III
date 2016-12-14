@@ -1,0 +1,105 @@
+---
+title: "CodeBook"
+author: "Guillermo Gonzalez Melgarejo, Laura Crystel Carreño Oliver, Alan Antonio De Jesús Mendoza, Erick Jhon Ceballos Guevara, José Francisco García Carmona"
+date: "December 13, 2016"
+output: html_document
+---
+#Benemérita Universidad Autónoma de Puebla
+## Facultad de Ciencias Físico Matemáticas
+### Licenciatura en Actuaría 
+### Programación Actuarial III
+### CodeBook: Reconocimiento de actividad humana
+
+## Descripción de la base de datos 
+
+Los experimentos se han llevado a cabo con un grupo de 30 voluntarios dentro de un grupo de edad de 19-48 años. Cada persona lleva a cabo seis actividades (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) usando un teléfono inteligente (Samsung Galaxy S II) en la cintura.
+
+A través de su acelerómetro incorporado y giroscopio, hemos capturado aceleración lineal 3-axial y velocidad angular 3-axial a una velocidad constante de 50 Hz. Los experimentos han sido grabadas en vídeo para etiquetar los datos de forma manual. El conjunto de datos obtenidos se ha dividido aleatoriamente en dos grupos, en los que se seleccionó el 70% de los voluntarios para la generación de los datos de entrenamiento y 30% de los datos de prueba.
+
+Las señales del sensor (acelerómetro y giroscopio) fueron pre-procesados mediante la aplicación de filtros de ruido y luego se muestrean en deslizamiento de ancho fijo ventanas de 2,56 seg y 50% de solapamiento (128 lecturas / ventana). La señal de aceleración del sensor, que tiene componentes gravitacionales y el movimiento del cuerpo, se separó usando un filtro de paso bajo Butterworth en aceleración cuerpo y la gravedad. La fuerza de la gravedad se supone que tiene sólo componentes de baja frecuencia, por lo tanto, se utilizó un filtro con 0,3 Hz frecuencia de corte. A partir de cada ventana, un vector de características se obtuvo mediante el cálculo de las variables de tiempo y el dominio de la frecuencia.
+
+Información de los atributos:
+
+Para cada registro en el conjunto de datos se proporciona:
+- Aceleración triaxial del acelerómetro (aceleración total) y la aceleración estimada del cuerpo.
+- Triaxial Velocidad angular del giroscopio.
+- Un vector de 561 características con variables de dominio de tiempo y frecuencia.
+- Su etiqueta de actividad.
+- Un identificador del sujeto que realizó el experimento.
+
+## Descripción de las variables 
+
+El archivo clearData.txt contiene la combinación de datos de los archivos train.txt y test.txt, extrayendo la media y desviación estándar de cada actividad y cada sujeto.Donde test.txt y train.txt contiene variabes '-XYZ' que se utilizan para designar señales axiales en las direcciones X, Y y Z.
+
+1. Sujeto: Las participantes del muestreo
+2. Actividad: Las actividades que fueron evaluadas en los participantes
+3. TiempoCuerpoAcc-Media()-X
+4. TiempoCuerpoAcc-Media()-Y
+5. TiempoCuerpoAcc-Media()-Z
+6. TiempoCuerpoAcc-STD()-X
+7. TiempoCuerpoAcc-STD()-Y
+8. TiempoCuerpoAcc-STD()-Z
+9. TiempoGraviTiempoyAcc-Media()-X
+10. TiempoGraviTiempoyAcc-Media()-Y
+11. TiempoGraviTiempoyAcc-Media()-Z
+12. TiempoGraviTiempoyAcc-STD()-X
+13. TiempoGraviTiempoyAcc-STD()-Y
+14. TiempoGraviTiempoyAcc-STD()-Z
+15. TiempoCuerpoAccJerk-Media()-X
+16. TiempoCuerpoAccJerk-Media()-Y
+17. TiempoCuerpoAccJerk-Media()-Z
+18. TiempoCuerpoAccJerk-STD()-X
+19. TiempoCuerpoAccJerk-STD()-Y
+20. TiempoCuerpoAccJerk-STD()-Z
+21. TiempoCuerpoGyro-Media()-X
+22. TiempoCuerpoGyro-Media()-Y
+23. TiempoCuerpoGyro-Media()-Z
+24. TiempoCuerpoGyro-STD()-X
+25. TiempoCuerpoGyro-STD()-Y
+26. TiempoCuerpoGyro-STD()-Z
+27. TiempoCuerpoGyroJerk-Media()-X
+28. TiempoCuerpoGyroJerk-Media()-Y
+29. TiempoCuerpoGyroJerk-Media()-Z
+30. TiempoCuerpoGyroJerk-STD()-X
+31. TiempoCuerpoGyroJerk-STD()-Y
+32. TiempoCuerpoGyroJerk-STD()-Z
+33. TiempoCuerpoAccMag-Media()
+34. TiempoCuerpoAccMag-STD()
+35. TiempoGraviTiempoyAccMag-Media()
+36. TiempoGraviTiempoyAccMag-STD()
+37. TiempoCuerpoAccJerkMag-Media()
+38. TiempoCuerpoAccJerkMag-STD()
+39. TiempoCuerpoGyroMag-Media()
+40. TiempoCuerpoGyroMag-STD()
+41. TiempoCuerpoGyroJerkMag-Media()
+42. TiempoCuerpoGyroJerkMag-STD()
+43. FrecuenciaCuerpoAcc-Media()-X
+44. FrecuenciaCuerpoAcc-Media()-Y
+45. FrecuenciaCuerpoAcc-Media()-Z
+46. FrecuenciaCuerpoAcc-STD()-X
+47. FrecuenciaCuerpoAcc-STD()-Y
+48.FrecuenciaCuerpoAcc-STD()-Z
+49. FrecuenciaCuerpoAccJerk-Media()-X
+50. FrecuenciaCuerpoAccJerk-Media()-Y
+51. FrecuenciaCuerpoAccJerk-Media()-Z
+52. FrecuenciaCuerpoAccJerk-STD()-X
+53. FrecuenciaCuerpoAccJerk-STD()-Y
+54. FrecuenciaCuerpoAccJerk-STD()-Z
+55. FrecuenciaCuerpoGyro-Media()-X
+56. FrecuenciaCuerpoGyro-Media()-Y
+57. FrecuenciaCuerpoGyro-Media()-Z
+58. FrecuenciaCuerpoGyro-STD()-X
+59. FrecuenciaCuerpoGyro-STD()-Y
+60. FrecuenciaCuerpoGyro-STD()-Z
+61. FrecuenciaCuerpoAccMag-Media()
+62. FrecuenciaCuerpoAccMag-STD()
+63. FrecuenciaCuerpoAccJerkMag-Media()
+64. FrecuenciaCuerpoAccJerkMag-STD()
+65. FrecuenciaCuerpoGyroMag-Media()
+66. FrecuenciaCuerpoGyroMag-STD()
+67. FrecuenciaCuerpoGyroJerkMag-Media()
+68. FrecuenciaCuerpoGyroJerkMag-STD()
+
+
+
+

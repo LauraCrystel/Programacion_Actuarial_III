@@ -41,3 +41,4 @@ arrange(x,desc(var1))
 x$var4 <-rnorm(5)#para crear otra columna 
 x
 cbind(x,rnorm(5))
+
